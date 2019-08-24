@@ -1,6 +1,7 @@
 namespace Stripe.Infrastructure
 {
     using System;
+    using System.Globalization;
     using System.Reflection;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
@@ -48,6 +49,7 @@ namespace Stripe.Infrastructure
 
                 default:
                     throw new JsonSerializationException(string.Format(
+                        CultureInfo.InvariantCulture,
                         "Unexpected value when converting ExpandableField. Expected IExpandableField, got {0}.",
                         value?.GetType()));
             }
@@ -100,6 +102,7 @@ namespace Stripe.Infrastructure
 
                 default:
                     throw new JsonSerializationException(string.Format(
+                        CultureInfo.InvariantCulture,
                         "Unexpected token when converting ExpandableField: {0}.",
                         reader.TokenType.ToString()));
             }

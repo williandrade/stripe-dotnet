@@ -1,6 +1,7 @@
 namespace StripeTests
 {
     using System;
+    using System.Globalization;
     using Stripe;
     using Stripe.Infrastructure.FormEncoding;
     using Xunit;
@@ -16,7 +17,9 @@ namespace StripeTests
                 {
                     options = new CustomerCreateOptions
                     {
-                        TrialEnd = DateTime.Parse("Fri, 13 Feb 2009 23:31:30Z"),
+                        TrialEnd = DateTime.Parse(
+                            "Fri, 13 Feb 2009 23:31:30Z",
+                            CultureInfo.InvariantCulture),
                     },
                     want = "trial_end=1234567890",
                 },

@@ -2,6 +2,7 @@ namespace StripeTests
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using Stripe;
     using Stripe.Infrastructure.FormEncoding;
     using Xunit;
@@ -41,7 +42,9 @@ namespace StripeTests
         {
             var options = new SubscriptionCreateOptions
             {
-                TrialEnd = DateTime.Parse("Fri, 13 Feb 2009 23:31:30Z"),
+                TrialEnd = DateTime.Parse(
+                    "Fri, 13 Feb 2009 23:31:30Z",
+                    CultureInfo.InvariantCulture),
             };
 
             Assert.Equal("trial_end=1234567890", FormEncoder.CreateQueryString(options));

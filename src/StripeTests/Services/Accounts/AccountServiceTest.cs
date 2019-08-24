@@ -2,6 +2,7 @@ namespace StripeTests
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -88,7 +89,9 @@ namespace StripeTests
                 },
                 TosAcceptance = new AccountTosAcceptanceOptions
                 {
-                    Date = DateTime.Parse("Mon, 01 Jan 2001 00:00:00Z"),
+                    Date = DateTime.Parse(
+                        "Mon, 01 Jan 2001 00:00:00Z",
+                        CultureInfo.InvariantCulture),
                     Ip = "127.0.0.1",
                     UserAgent = "User-Agent",
                 },

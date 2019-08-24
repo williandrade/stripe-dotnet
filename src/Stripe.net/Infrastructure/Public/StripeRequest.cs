@@ -2,6 +2,7 @@ namespace Stripe
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
@@ -75,6 +76,7 @@ namespace Stripe
         public override string ToString()
         {
             return string.Format(
+                CultureInfo.InvariantCulture,
                 "<{0} Method={1} Uri={2}>",
                 this.GetType().FullName,
                 this.Method,

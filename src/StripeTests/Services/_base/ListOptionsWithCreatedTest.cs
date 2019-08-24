@@ -1,6 +1,7 @@
 namespace StripeTests
 {
     using System;
+    using System.Globalization;
     using Stripe;
     using Stripe.Infrastructure.FormEncoding;
     using Xunit;
@@ -23,7 +24,9 @@ namespace StripeTests
         {
             var options = new ListOptionsWithCreated
             {
-                Created = DateTime.Parse("Fri, 13 Feb 2009 23:31:30Z"),
+                Created = DateTime.Parse(
+                    "Fri, 13 Feb 2009 23:31:30Z",
+                    CultureInfo.InvariantCulture),
             };
 
             Assert.Equal("created=1234567890", FormEncoder.CreateQueryString(options));
@@ -47,8 +50,12 @@ namespace StripeTests
             {
                 Created = new DateRangeOptions
                 {
-                    GreaterThanOrEqual = DateTime.Parse("Fri, 13 Feb 2009 23:31:30Z"),
-                    LessThan = DateTime.Parse("Sun, 1 May 2044 01:28:21Z"),
+                    GreaterThanOrEqual = DateTime.Parse(
+                        "Fri, 13 Feb 2009 23:31:30Z",
+                        CultureInfo.InvariantCulture),
+                    LessThan = DateTime.Parse(
+                        "Sun, 1 May 2044 01:28:21Z",
+                        CultureInfo.InvariantCulture),
                 },
             };
 

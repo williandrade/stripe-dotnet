@@ -1,6 +1,7 @@
 namespace Stripe
 {
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using Newtonsoft.Json;
@@ -40,6 +41,7 @@ namespace Stripe
         public override string ToString()
         {
             return string.Format(
+                CultureInfo.InvariantCulture,
                 "<{0}@{1} id={2}> JSON: {3}",
                 this.GetType().FullName,
                 RuntimeHelpers.GetHashCode(this),

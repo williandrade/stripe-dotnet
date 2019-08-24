@@ -1,6 +1,7 @@
 namespace Stripe
 {
     using System;
+    using System.Globalization;
     using System.Linq;
     using System.Net;
     using System.Net.Http.Headers;
@@ -72,11 +73,12 @@ namespace Stripe
         public override string ToString()
         {
             return string.Format(
+                CultureInfo.InvariantCulture,
                 "<{0} status={1} Request-Id={2} Date={3}>",
                 this.GetType().FullName,
                 (int)this.StatusCode,
                 this.RequestId,
-                this.Date?.ToString("s"));
+                this.Date?.ToString("s", CultureInfo.InvariantCulture));
         }
 
         private static string MaybeGetHeader(HttpHeaders headers, string name)

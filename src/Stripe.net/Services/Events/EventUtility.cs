@@ -2,6 +2,7 @@ namespace Stripe
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Security.Cryptography;
     using System.Text;
@@ -148,7 +149,9 @@ namespace Stripe
                     "The signature for the webhook is not present in the Stripe-Signature header.");
             }
 
-            var webhookUtc = Convert.ToInt32(signatureItems["t"].FirstOrDefault());
+            var webhookUtc = Convert.ToInt32(
+                signatureItems["t"].FirstOrDefault(),
+                CultureInfo.InvariantCulture);
 
             if (Math.Abs(utcNow - webhookUtc) > tolerance)
             {

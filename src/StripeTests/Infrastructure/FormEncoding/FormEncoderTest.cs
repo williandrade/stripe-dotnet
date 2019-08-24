@@ -5,12 +5,14 @@ namespace StripeTests
     using System.Globalization;
     using System.IO;
     using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
     using Stripe;
     using Stripe.Infrastructure.FormEncoding;
     using StripeTests.Infrastructure.TestData;
     using Xunit;
+#if !NETCOREAPP1_1
+    using System.Threading;
+#endif
 
     public class FormEncoderTest : BaseStripeTest
     {
@@ -190,8 +192,12 @@ namespace StripeTests
                     {
                         DateRangeOptions = new DateRangeOptions
                         {
-                            LessThan = DateTime.Parse("Sat, 01 Jan 2000 05:00:00Z"),
-                            GreaterThanOrEqual = DateTime.Parse("Sat, 01 Jan 2000 00:00:00Z"),
+                            LessThan = DateTime.Parse(
+                                "Sat, 01 Jan 2000 05:00:00Z",
+                                CultureInfo.InvariantCulture),
+                            GreaterThanOrEqual = DateTime.Parse(
+                                "Sat, 01 Jan 2000 00:00:00Z",
+                                CultureInfo.InvariantCulture),
                         },
                     },
                     want = "date_filter[gte]=946684800&date_filter[lt]=946702800",
@@ -202,7 +208,9 @@ namespace StripeTests
                 {
                     data = new TestOptions
                     {
-                        DateTime = DateTime.Parse("Sat, 01 Jan 2000 00:00:00Z"),
+                        DateTime = DateTime.Parse(
+                            "Sat, 01 Jan 2000 00:00:00Z",
+                            CultureInfo.InvariantCulture),
                     },
                     want = "datetime=946684800",
                 },

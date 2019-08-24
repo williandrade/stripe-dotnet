@@ -1,6 +1,7 @@
 namespace Stripe.Infrastructure
 {
     using System;
+    using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
@@ -19,7 +20,8 @@ namespace Stripe.Infrastructure
             }
             else
             {
-                writer.WriteRawValue(((DateTime)value).ConvertDateTimeToEpoch().ToString());
+                var unixTime = ((DateTime)value).ConvertDateTimeToEpoch();
+                writer.WriteRawValue(unixTime.ToString(CultureInfo.InvariantCulture));
             }
         }
 
@@ -40,7 +42,7 @@ namespace Stripe.Infrastructure
                 return EpochTime.ConvertEpochToDateTime((long)reader.Value);
             }
 
-            return DateTime.Parse(reader.Value.ToString());
+            return DateTime.Parse(reader.Value.ToString(), CultureInfo.InvariantCulture);
         }
     }
 }

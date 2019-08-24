@@ -1,6 +1,7 @@
 namespace StripeTests
 {
     using System;
+    using System.Globalization;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -21,7 +22,7 @@ namespace StripeTests
         {
             if (StripeMockHandler.StartStripeMock())
             {
-                this.port = StripeMockHandler.Port.ToString();
+                this.port = StripeMockHandler.Port.ToString(CultureInfo.InvariantCulture);
             }
             else
             {

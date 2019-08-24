@@ -1,6 +1,7 @@
 namespace Stripe.Infrastructure
 {
     using System;
+    using System.Globalization;
     using System.Linq;
     using System.Reflection;
     using Newtonsoft.Json;
@@ -44,6 +45,7 @@ namespace Stripe.Infrastructure
 
                 default:
                     throw new JsonSerializationException(string.Format(
+                        CultureInfo.InvariantCulture,
                         "Unexpected value when converting AnyOf. Expected IAnyOf, got {0}.",
                         value?.GetType()));
             }
@@ -104,6 +106,7 @@ namespace Stripe.Infrastructure
             if (o == null)
             {
                 throw new JsonSerializationException(string.Format(
+                    CultureInfo.InvariantCulture,
                     "Cannot deserialize the current JSON object into any of the expected types ({0}).",
                     string.Join(", ", objectType.GenericTypeArguments.Select(t => t.FullName))));
             }

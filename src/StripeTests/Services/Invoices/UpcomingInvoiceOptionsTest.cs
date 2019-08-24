@@ -1,6 +1,7 @@
 namespace StripeTests
 {
     using System;
+    using System.Globalization;
     using Stripe;
     using Stripe.Infrastructure.FormEncoding;
     using Xunit;
@@ -16,7 +17,9 @@ namespace StripeTests
                 {
                     options = new UpcomingInvoiceOptions
                     {
-                        SubscriptionBillingCycleAnchor = DateTime.Parse("Fri, 13 Feb 2009 23:31:30Z"),
+                        SubscriptionBillingCycleAnchor = DateTime.Parse(
+                            "Fri, 13 Feb 2009 23:31:30Z",
+                            CultureInfo.InvariantCulture),
                     },
                     want = "subscription_billing_cycle_anchor=1234567890",
                 },
