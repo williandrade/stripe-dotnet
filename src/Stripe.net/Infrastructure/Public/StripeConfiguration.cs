@@ -168,7 +168,7 @@ namespace Stripe
         /// </summary>
         public static AppInfo AppInfo
         {
-            internal get => appInfo;
+            get => appInfo;
 
             set
             {
