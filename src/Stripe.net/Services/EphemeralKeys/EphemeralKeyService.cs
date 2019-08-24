@@ -1,9 +1,8 @@
 namespace Stripe
 {
-    using System.Collections.Generic;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
-    using Stripe.Infrastructure;
 
     public class EphemeralKeyService : Service<EphemeralKey>,
         ICreatable<EphemeralKey, EphemeralKeyCreateOptions>,
@@ -23,9 +22,14 @@ namespace Stripe
 
         public virtual EphemeralKey Create(EphemeralKeyCreateOptions options, RequestOptions requestOptions = null)
         {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             if (options.StripeVersion == null)
             {
-                throw new System.ArgumentException("The StripeVersion parameter has to be set when creating an Ephemeral Key", "StripeVersion");
+                throw new ArgumentException("The StripeVersion parameter has to be set when creating an Ephemeral Key", "StripeVersion");
             }
 
             // Creating an ephemeral key requires a specific API version to be set. This is handled as a parameter
@@ -38,6 +42,16 @@ namespace Stripe
 
         public virtual Task<EphemeralKey> CreateAsync(EphemeralKeyCreateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            if (options.StripeVersion == null)
+            {
+                throw new ArgumentException("The StripeVersion parameter has to be set when creating an Ephemeral Key", "StripeVersion");
+            }
+
             // Creating an ephemeral key requires a specific API version to be set. This is handled as a parameter
             // but has to be set on the RequestOptions instead.
             requestOptions = requestOptions ?? new RequestOptions();

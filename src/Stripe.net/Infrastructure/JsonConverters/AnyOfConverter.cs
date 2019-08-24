@@ -27,6 +27,11 @@ namespace Stripe.Infrastructure
         /// <param name="serializer">The calling serializer.</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
+            if (serializer == null)
+            {
+                throw new ArgumentNullException(nameof(serializer));
+            }
+
             switch (value)
             {
                 case null:
@@ -40,7 +45,7 @@ namespace Stripe.Infrastructure
                 default:
                     throw new JsonSerializationException(string.Format(
                         "Unexpected value when converting AnyOf. Expected IAnyOf, got {0}.",
-                        value.GetType()));
+                        value?.GetType()));
             }
         }
 
@@ -54,6 +59,21 @@ namespace Stripe.Infrastructure
         /// <returns>The object value.</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            if (reader == null)
+            {
+                throw new ArgumentNullException(nameof(reader));
+            }
+
+            if (objectType == null)
+            {
+                throw new ArgumentNullException(nameof(objectType));
+            }
+
+            if (serializer == null)
+            {
+                throw new ArgumentNullException(nameof(serializer));
+            }
+
             if (reader.TokenType == JsonToken.Null)
             {
                 return null;

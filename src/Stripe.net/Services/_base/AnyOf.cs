@@ -120,7 +120,7 @@ namespace Stripe
         /// A value of type <c>T1</c>. If the <see cref="AnyOf{T1, T2}"/> object currently
         /// holds a value of a different type, the default value for type <c>T1</c> is returned.
         /// </returns>
-        public static implicit operator T1(AnyOf<T1, T2> anyOf) => anyOf.value1;
+        public static implicit operator T1(AnyOf<T1, T2> anyOf) => anyOf == null ? default : anyOf.value1;
 
         /// <summary>
         /// Converts a value of type <c>T2</c> to an <see cref="AnyOf{T1, T2}"/> object.
@@ -130,7 +130,7 @@ namespace Stripe
         /// A value of type <c>T2</c>. If the <see cref="AnyOf{T1, T2}"/> object currently
         /// holds a value of a different type, the default value for type <c>T2</c> is returned.
         /// </returns>
-        public static implicit operator T2(AnyOf<T1, T2> anyOf) => anyOf.value2;
+        public static implicit operator T2(AnyOf<T1, T2> anyOf) => anyOf == null ? default : anyOf.value2;
     }
 
     /// <summary>
@@ -260,7 +260,7 @@ namespace Stripe
         /// A value of type <c>T1</c>. If the <see cref="AnyOf{T1, T2, T3}"/> object currently
         /// holds a value of a different type, the default value for type <c>T3</c> is returned.
         /// </returns>
-        public static implicit operator T1(AnyOf<T1, T2, T3> anyOf) => anyOf.value1;
+        public static implicit operator T1(AnyOf<T1, T2, T3> anyOf) => anyOf == null ? default : anyOf.value1;
 
         /// <summary>
         /// Converts an <see cref="AnyOf{T1, T2, T3}"/> object to a value of type <c>T2</c>.
@@ -270,7 +270,7 @@ namespace Stripe
         /// A value of type <c>T2</c>. If the <see cref="AnyOf{T1, T2, T3}"/> object currently
         /// holds a value of a different type, the default value for type <c>T3</c> is returned.
         /// </returns>
-        public static implicit operator T2(AnyOf<T1, T2, T3> anyOf) => anyOf.value2;
+        public static implicit operator T2(AnyOf<T1, T2, T3> anyOf) => anyOf == null ? default : anyOf.value2;
 
         /// <summary>
         /// Converts an <see cref="AnyOf{T1, T2, T3}"/> object to a value of type <c>T3</c>.
@@ -280,6 +280,6 @@ namespace Stripe
         /// A value of type <c>T3</c>. If the <see cref="AnyOf{T1, T2, T3}"/> object currently
         /// holds a value of a different type, the default value for type <c>T3</c> is returned.
         /// </returns>
-        public static implicit operator T3(AnyOf<T1, T2, T3> anyOf) => anyOf.value3;
+        public static implicit operator T3(AnyOf<T1, T2, T3> anyOf) => anyOf == null ? default : anyOf.value3;
     }
 }

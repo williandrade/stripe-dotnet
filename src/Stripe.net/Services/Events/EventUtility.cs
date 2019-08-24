@@ -123,6 +123,11 @@ namespace Stripe
             long utcNow,
             bool throwOnApiVersionMismatch = true)
         {
+            if (stripeSignatureHeader == null)
+            {
+                throw new ArgumentNullException(nameof(stripeSignatureHeader));
+            }
+
             var signatureItems = ParseStripeSignature(stripeSignatureHeader);
             var signature = string.Empty;
 

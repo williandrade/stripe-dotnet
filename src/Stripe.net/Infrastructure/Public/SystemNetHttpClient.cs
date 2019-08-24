@@ -113,6 +113,11 @@ namespace Stripe
             StripeRequest request,
             CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
             TimeSpan duration;
             Exception requestException = null;
             HttpResponseMessage response = null;

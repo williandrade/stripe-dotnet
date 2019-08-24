@@ -24,6 +24,11 @@ namespace Stripe
         /// <param name="headers">The request headers.</param>
         public void MaybeAddTelemetryHeader(IDictionary<string, string> headers)
         {
+            if (headers == null)
+            {
+                throw new ArgumentNullException(nameof(headers));
+            }
+
             if (headers.ContainsKey("X-Stripe-Client-Telemetry"))
             {
                 return;
@@ -48,6 +53,11 @@ namespace Stripe
         /// <param name="duration">The request duration.</param>
         public void MaybeEnqueueMetrics(HttpResponseMessage response, TimeSpan duration)
         {
+            if (response == null)
+            {
+                throw new ArgumentNullException(nameof(response));
+            }
+
             if (!response.Headers.Contains("Request-Id"))
             {
                 return;
