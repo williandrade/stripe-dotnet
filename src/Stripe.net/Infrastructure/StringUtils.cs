@@ -14,7 +14,7 @@ namespace Stripe.Infrastructure
         public static string ToSnakeCase(string str)
         {
             var tmp = Regex.Replace(str, "(.)([A-Z][a-z]+)", "$1_$2");
-            return Regex.Replace(tmp, "([a-z0-9])([A-Z])", "$1_$2").ToLower();
+            return Regex.Replace(tmp, "([a-z0-9])([A-Z])", "$1_$2").ToLowerInvariant();
         }
 
         /// <summary>
