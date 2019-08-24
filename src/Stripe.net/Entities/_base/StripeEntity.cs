@@ -132,6 +132,7 @@ namespace Stripe
         /// <summary>Deserializes the JSON to a Stripe object type.</summary>
         /// <param name="value">The object to deserialize.</param>
         /// <returns>The deserialized Stripe object from the JSON string.</returns>
+        [SuppressMessage("Microsoft.Design", "CA1000", Justification = "Used for curiously recurring template pattern")]
         public static new T FromJson(string value)
         {
             return StripeEntity.FromJson<T>(value);
