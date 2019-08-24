@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Rules for Stripe.net project" Description="Code analysis rules for Stripe.net" ToolsVersion="14.0">
   <Rules AnalyzerId="Microsoft.CodeAnalysis.FxCopAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.FxCopAnalyzers">
-    <Rule Id="CA1720" Action="None" />
     <Rule Id="CA1724" Action="None" />
     <Rule Id="CA1822" Action="None" />
     <Rule Id="CA2000" Action="None" />
@@ -35,6 +34,13 @@
       would be a huge breaking change and not worth it.
     -->
     <Rule Id="CA1716" Action="None" />
+
+    <!--
+      CA1720: Identifiers should not contain type names
+      We use `Object` as a property name in a lot of model classes.
+    -->
+    <Rule Id="CA1720" Action="None" />
+
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <!--
