@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Rules for Stripe.net project" Description="Code analysis rules for Stripe.net" ToolsVersion="14.0">
   <Rules AnalyzerId="Microsoft.CodeAnalysis.FxCopAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.FxCopAnalyzers">
-    <Rule Id="CA1054" Action="None" />
-    <Rule Id="CA1055" Action="None" />
-    <Rule Id="CA1056" Action="None" />
     <Rule Id="CA1062" Action="None" />
     <Rule Id="CA1303" Action="None" />
     <Rule Id="CA1304" Action="None" />
@@ -20,6 +17,17 @@
     <Rule Id="CA2225" Action="None" />
     <Rule Id="CA2227" Action="None" />
     <Rule Id="CA2237" Action="None" />
+
+    <!--
+      CA1054: URI parameters should not be strings
+      CA1055: URI return values should not be strings
+      CA1056: URI properties should not be strings
+      We have plenty of string parameters/return values/properties named `Url`.
+      In most cases, they're not full URLs but just paths (e.g. "/v1/foo").
+    -->
+    <Rule Id="CA1054" Action="None" />
+    <Rule Id="CA1055" Action="None" />
+    <Rule Id="CA1056" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <!--
