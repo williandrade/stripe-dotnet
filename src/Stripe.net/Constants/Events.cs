@@ -57,25 +57,25 @@ namespace Stripe
         /// <summary>
         /// Occurs whenever a receiver has been created.
         /// </summary>
-        [Obsolete]
+        [Obsolete("Bitcoin receivers are deprecated, use Sources instead.")]
         public const string BitcoinReceiverCreated = "bitcoin.receiver.created";
 
         /// <summary>
         /// Occurs whenever a receiver is filled (that is, when it has received enough bitcoin to process a payment of the same amount).
         /// </summary>
-        [Obsolete]
+        [Obsolete("Bitcoin receivers are deprecated, use Sources instead.")]
         public const string BitcoinReceiverFilled = "bitcoin.receiver.filled";
 
         /// <summary>
         /// Occurs whenever a receiver is updated.
         /// </summary>
-        [Obsolete]
+        [Obsolete("Bitcoin receivers are deprecated, use Sources instead.")]
         public const string BitcoinReceiverUpdated = "bitcoin.receiver.updated";
 
         /// <summary>
         /// Occurs whenever bitcoin is pushed to a receiver.
         /// </summary>
-        [Obsolete]
+        [Obsolete("Bitcoin receivers are deprecated, use Sources instead.")]
         public const string BitcoinReceiverTransactionUpdated = "bitcoin.receiver.transaction.created";
 
         /// <summary>
