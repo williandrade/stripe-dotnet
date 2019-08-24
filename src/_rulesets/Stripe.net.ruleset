@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Rules for Stripe.net project" Description="Code analysis rules for Stripe.net" ToolsVersion="14.0">
   <Rules AnalyzerId="Microsoft.CodeAnalysis.FxCopAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.FxCopAnalyzers">
-    <Rule Id="CA1308" Action="None" />
     <Rule Id="CA1710" Action="None" />
     <Rule Id="CA1716" Action="None" />
     <Rule Id="CA1720" Action="None" />

@@ -2,6 +2,7 @@ namespace Stripe
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
     using System.Security.Cryptography;
@@ -175,6 +176,7 @@ namespace Stripe
             return signatures.Any(key => StringUtils.SecureEquals(key, signature));
         }
 
+        [SuppressMessage("Microsoft.Globalization", "CA1308", Justification = "Stripe webhook signatures are lowercase")]
         private static string ComputeSignature(string secret, string timestamp, string payload)
         {
             var secretBytes = SafeUTF8.GetBytes(secret);

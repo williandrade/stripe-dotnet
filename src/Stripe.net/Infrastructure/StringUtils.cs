@@ -1,6 +1,7 @@
 namespace Stripe.Infrastructure
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Runtime.CompilerServices;
     using System.Text.RegularExpressions;
 
@@ -11,6 +12,7 @@ namespace Stripe.Infrastructure
         /// <summary>Converts the string to snake case.</summary>
         /// <param name="str">The string to convert.</param>
         /// <returns>A string with the contents of the input string converted to snake_case.</returns>
+        [SuppressMessage("Microsoft.Globalization", "CA1308", Justification = "snake_case requires lowercase")]
         public static string ToSnakeCase(string str)
         {
             var tmp = Regex.Replace(str, "(.)([A-Z][a-z]+)", "$1_$2");
