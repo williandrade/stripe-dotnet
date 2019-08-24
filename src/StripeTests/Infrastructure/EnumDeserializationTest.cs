@@ -1,5 +1,6 @@
 namespace StripeTests
 {
+    using System;
     using Newtonsoft.Json;
     using StripeTests.Infrastructure.TestData;
     using Xunit;
@@ -34,7 +35,10 @@ namespace StripeTests
             var exception = Assert.Throws<Newtonsoft.Json.JsonSerializationException>(() =>
                 JsonConvert.DeserializeObject<TestOptions>(json));
 
-            Assert.Contains("Error converting value \"unknown_value\"", exception.Message);
+            Assert.Contains(
+                "Error converting value \"unknown_value\"",
+                exception.Message,
+                StringComparison.Ordinal);
         }
     }
 }

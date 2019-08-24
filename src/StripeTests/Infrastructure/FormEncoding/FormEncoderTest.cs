@@ -80,19 +80,24 @@ namespace StripeTests
             // MultipartFormDataContentTest has more exhaustive tests with a non-random boundary.
             Assert.Contains(
                 "Content-Type: text/plain; charset=utf-8\r\nContent-Disposition: form-data; name=\"list[0]\"\r\n\r\n1\r\n",
-                result);
+                result,
+                StringComparison.Ordinal);
             Assert.Contains(
                 "Content-Type: text/plain; charset=utf-8\r\nContent-Disposition: form-data; name=\"list[1]\"\r\n\r\n2\r\n",
-                result);
+                result,
+                StringComparison.Ordinal);
             Assert.Contains(
                 "Content-Type: text/plain; charset=utf-8\r\nContent-Disposition: form-data; name=\"list[2]\"\r\n\r\n3\r\n",
-                result);
+                result,
+                StringComparison.Ordinal);
             Assert.Contains(
                 "Content-Disposition: form-data; name=\"stream\"; filename=blob; filename*=utf-8''blob\r\nContent-Type: application/octet-stream\r\n\r\nHello World!\r\n",
-                result);
+                result,
+                StringComparison.Ordinal);
             Assert.Contains(
                 "Content-Type: text/plain; charset=utf-8\r\nContent-Disposition: form-data; name=\"string\"\r\n\r\nString!\r\n",
-                result);
+                result,
+                StringComparison.Ordinal);
         }
 
         [Fact]
@@ -404,7 +409,7 @@ namespace StripeTests
             {
                 Enum = TestOptions.TestEnum.TestOne,
             };
-            Assert.Contains("enum=test_one", FormEncoder.CreateQueryString(options));
+            Assert.Equal("enum=test_one", FormEncoder.CreateQueryString(options));
         }
 
         #if !NETCOREAPP1_1

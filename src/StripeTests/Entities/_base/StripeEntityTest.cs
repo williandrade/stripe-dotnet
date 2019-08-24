@@ -1,5 +1,6 @@
 namespace StripeTests
 {
+    using System;
     using Newtonsoft.Json;
     using Stripe;
     using Stripe.Infrastructure;
@@ -72,10 +73,8 @@ namespace StripeTests
                 String = "String!",
             };
 
-            var json = o.ToJson().Replace("\r\n", "\n");
-
             var expectedJson = "{\n  \"integer\": 234,\n  \"string\": \"String!\",\n  \"nested\": null\n}";
-            Assert.Equal(expectedJson, json);
+            Assert.Equal(expectedJson, o.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         [Fact]

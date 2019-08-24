@@ -42,14 +42,20 @@ namespace StripeTests
         public void Ctor_ThrowsIfApiKeyIsEmpty()
         {
             var exception = Assert.Throws<ArgumentException>(() => new StripeClient(string.Empty));
-            Assert.Contains("API key cannot be the empty string.", exception.Message);
+            Assert.Contains(
+                "API key cannot be the empty string.",
+                exception.Message,
+                StringComparison.Ordinal);
         }
 
         [Fact]
         public void Ctor_ThrowsIfApiKeyContainsWhitespace()
         {
             var exception = Assert.Throws<ArgumentException>(() => new StripeClient("sk_test_123\n"));
-            Assert.Contains("API key cannot contain whitespace.", exception.Message);
+            Assert.Contains(
+                "API key cannot contain whitespace.",
+                exception.Message,
+                StringComparison.Ordinal);
         }
 
         [Fact]

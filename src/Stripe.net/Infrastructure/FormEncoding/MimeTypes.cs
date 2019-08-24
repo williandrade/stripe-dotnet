@@ -35,7 +35,7 @@ namespace Stripe.Infrastructure.FormEncoding
                 throw new ArgumentNullException(nameof(extension));
             }
 
-            if (!extension.StartsWith("."))
+            if (!extension.StartsWith(".", StringComparison.Ordinal))
             {
                 extension = "." + extension;
             }

@@ -1,5 +1,6 @@
 namespace StripeTests
 {
+    using System;
     using System.Net.Http;
     using System.Threading.Tasks;
     using Stripe;
@@ -127,7 +128,7 @@ namespace StripeTests
             var exception = Assert.Throws<StripeException>(() =>
                 new StripeRequest(client, HttpMethod.Get, "/get", null, requestOptions));
 
-            Assert.Contains("No API key provided.", exception.Message);
+            Assert.Contains("No API key provided.", exception.Message, StringComparison.Ordinal);
         }
     }
 }

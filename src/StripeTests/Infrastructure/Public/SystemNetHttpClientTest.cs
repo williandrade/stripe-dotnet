@@ -90,7 +90,8 @@ namespace StripeTests
             var userAgent = headers.UserAgent.ToString();
             var appInfo = JObject.Parse(headers.GetValues("X-Stripe-Client-User-Agent").First())["application"];
 
-            return userAgent.Contains("MyAwesomeApp/1.2.34 (https://myawesomeapp.info)") &&
+            return userAgent.EndsWith(
+                    "MyAwesomeApp/1.2.34 (https://myawesomeapp.info)", StringComparison.Ordinal) &&
                 appInfo.Value<string>("name") == "MyAwesomeApp" &&
                 appInfo.Value<string>("partner_id") == "pp_123" &&
                 appInfo.Value<string>("version") == "1.2.34" &&

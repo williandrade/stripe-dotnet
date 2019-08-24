@@ -53,7 +53,7 @@ namespace StripeTests
             };
 
             var expected = "{\n  \"nested\": \"id_not_expanded\"\n}";
-            Assert.Equal(expected, obj.ToJson().Replace("\r\n", "\n"));
+            Assert.Equal(expected, obj.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace StripeTests
 
             var expected =
                 "{\n  \"nested\": {\n    \"id\": \"id_expanded\",\n    \"bar\": 42\n  }\n}";
-            Assert.Equal(expected, obj.ToJson().Replace("\r\n", "\n"));
+            Assert.Equal(expected, obj.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace StripeTests
             };
 
             var expected = "{\n  \"nested\": null\n}";
-            Assert.Equal(expected, obj.ToJson().Replace("\r\n", "\n"));
+            Assert.Equal(expected, obj.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         private class TestNestedObject : StripeEntity<TestNestedObject>, IHasId

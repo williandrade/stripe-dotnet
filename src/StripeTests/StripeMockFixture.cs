@@ -139,7 +139,7 @@ namespace StripeTests
 
                 string version = response.Headers.GetValues("Stripe-Mock-Version").FirstOrDefault();
 
-                if (!version.Equals("master") &&
+                if (!version.Equals("master", StringComparison.Ordinal) &&
                     (CompareVersions(version, MockMinimumVersion) > 0))
                 {
                     throw new StripeTestException(

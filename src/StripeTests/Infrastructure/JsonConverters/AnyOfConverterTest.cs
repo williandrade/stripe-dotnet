@@ -1,5 +1,6 @@
 namespace StripeTests
 {
+    using System;
     using Newtonsoft.Json;
     using Stripe;
     using Stripe.Infrastructure;
@@ -47,7 +48,8 @@ namespace StripeTests
 
             Assert.Contains(
                 "Cannot deserialize the current JSON object into any of the expected types",
-                exception.Message);
+                exception.Message,
+                StringComparison.Ordinal);
         }
 
         [Fact]
@@ -59,7 +61,7 @@ namespace StripeTests
             };
 
             var expected = "{\n  \"any_of\": \"String!\"\n}";
-            Assert.Equal(expected, obj.ToJson().Replace("\r\n", "\n"));
+            Assert.Equal(expected, obj.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         [Fact]
@@ -76,7 +78,7 @@ namespace StripeTests
 
             var expected =
                 "{\n  \"any_of\": {\n    \"id\": \"id_123\",\n    \"bar\": 42\n  }\n}";
-            Assert.Equal(expected, obj.ToJson().Replace("\r\n", "\n"));
+            Assert.Equal(expected, obj.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         [Fact]
@@ -88,7 +90,7 @@ namespace StripeTests
             };
 
             var expected = "{\n  \"any_of\": null\n}";
-            Assert.Equal(expected, obj.ToJson().Replace("\r\n", "\n"));
+            Assert.Equal(expected, obj.ToJson(), ignoreLineEndingDifferences: true);
         }
 
         private class TestSubObject : StripeEntity<TestSubObject>, IHasId

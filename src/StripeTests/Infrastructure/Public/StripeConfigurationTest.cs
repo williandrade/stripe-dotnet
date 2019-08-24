@@ -66,7 +66,10 @@ namespace StripeTests
 
                 var exception = Assert.Throws<StripeException>(() =>
                     StripeConfiguration.StripeClient);
-                Assert.Contains("Your API key is invalid, as it is an empty string.", exception.Message);
+                Assert.Contains(
+                    "Your API key is invalid, as it is an empty string.",
+                    exception.Message,
+                    StringComparison.Ordinal);
             }
             finally
             {
@@ -86,7 +89,10 @@ namespace StripeTests
 
                 var exception = Assert.Throws<StripeException>(() =>
                     StripeConfiguration.StripeClient);
-                Assert.Contains("Your API key is invalid, as it contains whitespace.", exception.Message);
+                Assert.Contains(
+                    "Your API key is invalid, as it contains whitespace.",
+                    exception.Message,
+                    StringComparison.Ordinal);
             }
             finally
             {

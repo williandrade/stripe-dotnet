@@ -1,5 +1,6 @@
 namespace StripeTests
 {
+    using System;
     using Stripe;
     using Xunit;
 
@@ -89,7 +90,10 @@ namespace StripeTests
             var exception = Assert.Throws<StripeException>(() =>
                 EventUtility.ParseEvent(this.json));
 
-            Assert.Contains("Received event with API version 2017-05-25", exception.Message);
+            Assert.Contains(
+                "Received event with API version 2017-05-25",
+                exception.Message,
+                StringComparison.Ordinal);
         }
 
         [Fact]
