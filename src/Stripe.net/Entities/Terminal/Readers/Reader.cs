@@ -1,10 +1,9 @@
 namespace Stripe.Terminal
 {
-    using System;
-    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Newtonsoft.Json;
-    using Stripe.Infrastructure;
 
+    [SuppressMessage("Microsoft.Naming", "CA1724", Justification = "Model class names must match Stripe names")]
     public class Reader : StripeEntity<Reader>, IHasId, IHasObject
     {
         [JsonProperty("id")]
