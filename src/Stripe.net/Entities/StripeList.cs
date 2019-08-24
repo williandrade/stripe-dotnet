@@ -2,10 +2,12 @@ namespace Stripe
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
     [JsonObject]
+    [SuppressMessage("Microsoft.Naming", "CA1710", Justification = "Model class for Stripe list objects")]
     public class StripeList<T> : StripeEntity<StripeList<T>>, IHasObject, IEnumerable<T>
     {
         /// <summary>
