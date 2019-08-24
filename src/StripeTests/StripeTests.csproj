@@ -19,6 +19,10 @@
     <PackageReference Include="coverlet.msbuild" Version="2.4.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
     <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Stylecop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -42,7 +46,6 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <CodeAnalysisRuleSet>..\_stylecop\StyleCopRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet>..\_stylecop\StripeTests.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\_rulesets\StripeTests.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 </Project>
