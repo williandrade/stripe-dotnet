@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Rules for Stripe.net project" Description="Code analysis rules for Stripe.net" ToolsVersion="14.0">
   <Rules AnalyzerId="Microsoft.CodeAnalysis.FxCopAnalyzers" RuleNamespace="Microsoft.CodeAnalysis.FxCopAnalyzers">
-    <Rule Id="CA1822" Action="None" />
     <Rule Id="CA2000" Action="None" />
     <Rule Id="CA2208" Action="None" />
     <Rule Id="CA2225" Action="None" />
@@ -40,6 +39,12 @@
     -->
     <Rule Id="CA1720" Action="None" />
 
+    <!--
+      CA1822: Mark members as static
+      We use non-static `Object` properties in a lot of options classes to
+      force specific filters.
+    -->
+    <Rule Id="CA1822" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <!--
