@@ -1,0 +1,44 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: Tests
+
+    runs-on: windows-latest
+
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      STRIPE_MOCK_VERSION: "0.74.0"
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "3.0.100"
+
+      - name: Start stripe-mock
+        run: |
+          If(!(Test-Path ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}"))
+          {
+            New-Item -Name ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}" -ItemType "directory" -Force | Out-Null
+            Invoke-WebRequest "https://github.com/stripe/stripe-mock/releases/download/v${env:STRIPE_MOCK_VERSION}/stripe-mock_${env:STRIPE_MOCK_VERSION}_windows_amd64.zip" -OutFile ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}_windows_amd64.zip"
+            Expand-Archive -Path ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}_windows_amd64.zip" -DestinationPath ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}" | Out-Null
+          }
+          Start-Job { ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}\stripe-mock.exe -strict-version-check" }
+          $env:PATH += ";" + (Get-Item -Path ".\stripe-mock\stripe-mock_${env:STRIPE_MOCK_VERSION}").FullName
+
+      - name: Build project
+        run: |
+          dotnet --info
+          dotnet restore --no-cache src\Stripe.net.sln
+          dotnet build -c Debug src\Stripe.net\Stripe.net.csproj /p:ContinuousIntegrationBuild=true
+
+      - name: Run test suite
+        run: dotnet test src\StripeTests\StripeTests.csproj
