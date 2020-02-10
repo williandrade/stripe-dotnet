@@ -41,7 +41,11 @@ namespace Stripe
             return this.DeleteEntity(id, null, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<InvoiceItem> DeleteAsync(string id, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<InvoiceItem> DeleteAsync(string id, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.DeleteEntityAsync(id, null, requestOptions, cancellationToken);
         }
@@ -51,7 +55,11 @@ namespace Stripe
             return this.GetEntity(id, options, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<InvoiceItem> GetAsync(string id, InvoiceItemGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<InvoiceItem> GetAsync(string id, InvoiceItemGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
@@ -76,7 +84,11 @@ namespace Stripe
             return this.UpdateEntity(id, options, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<InvoiceItem> UpdateAsync(string id, InvoiceItemUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<InvoiceItem> UpdateAsync(string id, InvoiceItemUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }

@@ -53,7 +53,11 @@ namespace Stripe
             return this.DeleteEntity(id, null, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<EphemeralKey> DeleteAsync(string id, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<EphemeralKey> DeleteAsync(string id, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.DeleteEntityAsync(id, null, requestOptions, cancellationToken);
         }

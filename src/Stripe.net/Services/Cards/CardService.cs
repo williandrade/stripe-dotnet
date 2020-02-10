@@ -31,7 +31,11 @@ namespace Stripe
             return this.CreateNestedEntity(parentId, options, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<Card> CreateAsync(string parentId, CardCreateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<Card> CreateAsync(string parentId, CardCreateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.CreateNestedEntityAsync(parentId, options, requestOptions, cancellationToken);
         }
@@ -41,7 +45,11 @@ namespace Stripe
             return this.DeleteNestedEntity(parentId, id, null, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<Card> DeleteAsync(string parentId, string id, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<Card> DeleteAsync(string parentId, string id, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.DeleteNestedEntityAsync(parentId, id, null, requestOptions, cancellationToken);
         }
@@ -51,7 +59,11 @@ namespace Stripe
             return this.GetNestedEntity(parentId, id, options, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<Card> GetAsync(string parentId, string id, CardGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<Card> GetAsync(string parentId, string id, CardGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.GetNestedEntityAsync(parentId, id, options, requestOptions, cancellationToken);
         }
@@ -61,7 +73,11 @@ namespace Stripe
             return this.ListNestedEntities(parentId, options ?? new CardListOptions(), requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<StripeList<Card>> ListAsync(string parentId, CardListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<StripeList<Card>> ListAsync(string parentId, CardListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.ListNestedEntitiesAsync(parentId, options ?? new CardListOptions(), requestOptions, cancellationToken);
         }
@@ -76,7 +92,11 @@ namespace Stripe
             return this.UpdateNestedEntity(parentId, id, options, requestOptions);
         }
 
+<<<<<<< HEAD
         public virtual Task<Card> UpdateAsync(string parentId, string id, CardUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+=======
+        public virtual Task<Card> UpdateAsync(string parentId, string id, CardUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default(CancellationToken))
+>>>>>>> Rename all parameters in services' methods to be consistent (#1912)
         {
             return this.UpdateNestedEntityAsync(parentId, id, options, requestOptions, cancellationToken);
         }
