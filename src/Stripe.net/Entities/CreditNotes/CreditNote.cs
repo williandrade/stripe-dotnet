@@ -24,6 +24,10 @@ namespace Stripe
         public string Currency { get; set; }
 
         #region Expandable Customer
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string CustomerId
         {
@@ -43,7 +47,12 @@ namespace Stripe
         internal ExpandableField<Customer> InternalCustomer { get; set; }
         #endregion
 
+<<<<<<< HEAD
         #region Expandable Customer Balance Transaction
+=======
+        #region Expandable CustomerBalanceTransaction
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string CustomerBalanceTransactionId
         {
@@ -67,6 +76,10 @@ namespace Stripe
         public long DiscountAmount { get; set; }
 
         #region Expandable Invoice
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string InvoiceId
         {
@@ -111,6 +124,10 @@ namespace Stripe
         public string Reason { get; set; }
 
         #region Expandable Refund
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string RefundId
         {

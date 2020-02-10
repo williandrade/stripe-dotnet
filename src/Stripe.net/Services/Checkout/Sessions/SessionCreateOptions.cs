@@ -43,9 +43,12 @@ namespace Stripe.Checkout
         [JsonProperty("setup_intent_data")]
         public SessionSetupIntentDataOptions SetupIntentData { get; set; }
 
+<<<<<<< HEAD
         [JsonProperty("shipping_address_collection")]
         public SessionShippingAddressCollectionOptions ShippingAddressCollection { get; set; }
 
+=======
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonProperty("submit_type")]
         public string SubmitType { get; set; }
 

@@ -54,6 +54,10 @@ namespace Stripe
         public string Nickname { get; set; }
 
         #region Expandable Product
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string ProductId
         {

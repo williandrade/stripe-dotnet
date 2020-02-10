@@ -117,7 +117,12 @@ namespace Stripe
         [JsonProperty("customer_tax_ids")]
         public List<InvoiceCustomerTaxId> CustomerTaxIds { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Default Payment Method
+=======
+        #region Expandable DefaultPaymentMethod
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string DefaultPaymentMethodId
         {
@@ -201,7 +206,12 @@ namespace Stripe
         [JsonProperty("paid")]
         public bool Paid { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Payment Intent
+=======
+        #region Expandable PaymentIntent
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string PaymentIntentId
         {

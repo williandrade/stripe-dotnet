@@ -50,6 +50,10 @@ namespace Stripe
         public DateTime? CurrentPeriodStart { get; set; }
 
         #region Expandable Customer
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string CustomerId
         {
@@ -72,7 +76,12 @@ namespace Stripe
         [JsonProperty("days_until_due")]
         public long? DaysUntilDue { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Default Payment Method
+=======
+        #region Expandable DefaultPaymentMethod
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string DefaultPaymentMethodId
         {
@@ -92,7 +101,12 @@ namespace Stripe
         internal ExpandableField<PaymentMethod> InternalDefaultPaymentMethod { get; set; }
         #endregion
 
+<<<<<<< HEAD
         #region Expandable Default Source
+=======
+        #region Expandable DefaultSource
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string DefaultSourceId
         {
@@ -125,7 +139,12 @@ namespace Stripe
         [JsonProperty("items")]
         public StripeList<SubscriptionItem> Items { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Latest Invoice
+=======
+        #region Expandable LatestInvoice
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string LatestInvoiceId
         {
@@ -157,7 +176,12 @@ namespace Stripe
         [JsonProperty("pending_invoice_item_interval")]
         public SubscriptionPendingInvoiceItemInterval PendingInvoiceItemInterval { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Pending Setup Intent
+=======
+        #region Expandable PendingSetupIntent
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string PendingSetupIntentId
         {
@@ -187,6 +211,10 @@ namespace Stripe
         public long? Quantity { get; set; }
 
         #region Expandable Schedule
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string ScheduleId
         {

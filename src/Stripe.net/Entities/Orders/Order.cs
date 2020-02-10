@@ -26,6 +26,10 @@ namespace Stripe
         public long? ApplicationFee { get; set; }
 
         #region Expandable Charge
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string ChargeId
         {
@@ -53,6 +57,10 @@ namespace Stripe
         public string Currency { get; set; }
 
         #region Expandable Customer
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string CustomerId { get; set; }
 

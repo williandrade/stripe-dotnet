@@ -61,7 +61,12 @@ namespace Stripe.Checkout
         [JsonProperty("mode")]
         public string Mode { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Payment Intent
+=======
+        #region Expandable PaymentIntent
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string PaymentIntentId
         {
@@ -84,7 +89,12 @@ namespace Stripe.Checkout
         [JsonProperty("payment_method_types")]
         public List<string> PaymentMethodTypes { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Setup Intent
+=======
+        #region Expandable SetupIntent
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string SetupIntentId
         {
@@ -107,10 +117,13 @@ namespace Stripe.Checkout
         [JsonProperty("shipping")]
         public Shipping Shipping { get; set; }
 
+<<<<<<< HEAD
         [JsonProperty("shipping_address_collection")]
         public SessionShippingAddressCollection ShippingAddressCollection { get; set; }
 
         #region Expandable Subscription
+=======
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string SubscriptionId
         {

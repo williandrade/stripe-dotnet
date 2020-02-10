@@ -74,6 +74,10 @@ namespace Stripe
         #endregion
 
         #region Expandable Failure Balance Transaction
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string FailureBalanceTransactionId
         {

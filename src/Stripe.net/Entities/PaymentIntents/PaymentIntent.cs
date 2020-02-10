@@ -23,6 +23,10 @@ namespace Stripe
         public long? AmountReceived { get; set; }
 
         #region Expandable Application
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string ApplicationId
         {
@@ -72,6 +76,10 @@ namespace Stripe
         public string Currency { get; set; }
 
         #region Expandable Customer
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string CustomerId
         {
@@ -95,6 +103,10 @@ namespace Stripe
         public string Description { get; set; }
 
         #region Expandable Invoice
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string InvoiceId
         {
@@ -126,7 +138,12 @@ namespace Stripe
         [JsonProperty("next_action")]
         public PaymentIntentNextAction NextAction { get; set; }
 
+<<<<<<< HEAD
         #region Expandable On Behalf Of
+=======
+        #region Expandable OnBehalfOf (Account)
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string OnBehalfOfId
         {
@@ -146,7 +163,12 @@ namespace Stripe
         internal ExpandableField<Account> InternalOnBehalfOf { get; set; }
         #endregion
 
+<<<<<<< HEAD
         #region Expandable Payment Method
+=======
+        #region Expandable PaymentMethod
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string PaymentMethodId
         {
@@ -176,6 +198,10 @@ namespace Stripe
         public string ReceiptEmail { get; set; }
 
         #region Expandable Review
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string ReviewId
         {
@@ -202,6 +228,10 @@ namespace Stripe
         public Shipping Shipping { get; set; }
 
         #region Expandable Source
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string SourceId
         {

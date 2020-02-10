@@ -20,6 +20,10 @@ namespace Stripe
         public string Currency { get; set; }
 
         #region Expandable Customer
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string CustomerId
         {
@@ -53,6 +57,10 @@ namespace Stripe
         public bool Discountable { get; set; }
 
         #region Expandable Invoice
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string InvoiceId
         {
@@ -91,6 +99,10 @@ namespace Stripe
         public long? Quantity { get; set; }
 
         #region Expandable Subscription
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string SubscriptionId
         {

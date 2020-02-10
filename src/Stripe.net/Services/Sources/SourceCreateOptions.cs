@@ -7,6 +7,12 @@ namespace Stripe
 
     public class SourceCreateOptions : BaseOptions, IHasMetadata
     {
+<<<<<<< HEAD
+=======
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonProperty("alipay")]
         public string Alipay { get; set; }
 
@@ -34,12 +40,21 @@ namespace Stripe
         [JsonProperty("owner")]
         public SourceOwnerOptions Owner { get; set; }
 
+<<<<<<< HEAD
         [JsonProperty("receiver")]
         public SourceReceiverOptions Receiver { get; set; }
 
         [JsonProperty("redirect")]
         public SourceRedirectOptions Redirect { get; set; }
 
+=======
+        [JsonProperty("redirect")]
+        public SourceRedirectOptions Redirect { get; set; }
+
+        [JsonProperty("receiver")]
+        public SourceReceiverOptions Receiver { get; set; }
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonProperty("source_order")]
         public SourceSourceOrderOptions SourceOrder { get; set; }
 
@@ -49,9 +64,12 @@ namespace Stripe
         [JsonProperty("token")]
         public string Token { get; set; }
 
+<<<<<<< HEAD
         [JsonProperty("type")]
         public string Type { get; set; }
 
+=======
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonProperty("usage")]
         public string Usage { get; set; }
 

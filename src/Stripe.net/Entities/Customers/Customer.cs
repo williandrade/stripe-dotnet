@@ -26,7 +26,12 @@ namespace Stripe
         [JsonProperty("currency")]
         public string Currency { get; set; }
 
+<<<<<<< HEAD
         #region Expandable Default Source
+=======
+        #region Expandable DefaultSource
+
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonIgnore]
         public string DefaultSourceId
         {
@@ -79,9 +84,12 @@ namespace Stripe
         [JsonProperty("name")]
         public string Name { get; set; }
 
+<<<<<<< HEAD
         [JsonProperty("next_invoice_sequence")]
         public long NextInvoiceSequence { get; set; }
 
+=======
+>>>>>>> Remove all docs from entities, options and services (#1913)
         [JsonProperty("phone")]
         public string Phone { get; set; }
 
