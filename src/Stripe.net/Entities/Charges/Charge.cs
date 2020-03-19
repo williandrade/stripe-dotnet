@@ -13,6 +13,9 @@ namespace Stripe
         [JsonProperty("object")]
         public string Object { get; set; }
 
+        [JsonProperty("alternate_statement_descriptors")]
+        public ChargeAlternateStatementDescriptors AlternateStatementDescriptors { get; set; }
+
         [JsonProperty("amount")]
         public long Amount { get; set; }
 
@@ -62,8 +65,10 @@ namespace Stripe
         [JsonProperty("application_fee_amount")]
         public long? ApplicationFeeAmount { get; set; }
 
-        #region Expandable Balance Transaction
+        [JsonProperty("authorization_code")]
+        public string AuthorizationCode { get; set; }
 
+        #region Expandable Balance Transaction
         [JsonIgnore]
         public string BalanceTransactionId
         {
@@ -87,7 +92,7 @@ namespace Stripe
         public BillingDetails BillingDetails { get; set; }
 
         [JsonProperty("captured")]
-        public bool? Captured { get; set; }
+        public bool Captured { get; set; }
 
         [JsonProperty("created")]
         [JsonConverter(typeof(DateTimeConverter))]
@@ -97,7 +102,6 @@ namespace Stripe
         public string Currency { get; set; }
 
         #region Expandable Customer
-
         [JsonIgnore]
         public string CustomerId
         {
@@ -170,10 +174,9 @@ namespace Stripe
         public string FailureMessage { get; set; }
 
         [JsonProperty("fraud_details")]
-        public Dictionary<string, string> FraudDetails { get; set; }
+        public ChargeFraudDetails FraudDetails { get; set; }
 
         #region Expandable Invoice
-
         [JsonIgnore]
         public string InvoiceId
         {
@@ -193,14 +196,16 @@ namespace Stripe
         internal ExpandableField<Invoice> InternalInvoice { get; set; }
         #endregion
 
+        [JsonProperty("level3")]
+        public ChargeLevel3 Level3 { get; set; }
+
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
 
-        #region Expandable OnBehalfOf (Account)
-
+        #region Expandable On Behalf Of
         [JsonIgnore]
         public string OnBehalfOfId
         {
@@ -221,7 +226,6 @@ namespace Stripe
         #endregion
 
         #region Expandable Order
-
         [JsonIgnore]
         public string OrderId
         {
@@ -241,38 +245,17 @@ namespace Stripe
         internal ExpandableField<Order> InternalOrder { get; set; }
         #endregion
 
-        [JsonProperty("level3")]
-        public ChargeLevel3 Level3 { get; set; }
-
         [JsonProperty("outcome")]
         public Outcome Outcome { get; set; }
 
         [JsonProperty("paid")]
         public bool Paid { get; set; }
 
-        #region Expandable PaymentIntent
-
-        [JsonIgnore]
-        public string PaymentIntentId
-        {
-            get => this.InternalPaymentIntent?.Id;
-            set => this.InternalPaymentIntent = SetExpandableFieldId(value, this.InternalPaymentIntent);
-        }
-
-        [JsonIgnore]
-        public PaymentIntent PaymentIntent
-        {
-            get => this.InternalPaymentIntent?.ExpandedObject;
-            set => this.InternalPaymentIntent = SetExpandableFieldObject(value, this.InternalPaymentIntent);
-        }
-
         [JsonProperty("payment_intent")]
-        [JsonConverter(typeof(ExpandableFieldConverter<PaymentIntent>))]
-        internal ExpandableField<PaymentIntent> InternalPaymentIntent { get; set; }
-        #endregion
+        public string PaymentIntent { get; set; }
 
         [JsonProperty("payment_method")]
-        public string PaymentMethodId { get; set; }
+        public string PaymentMethod { get; set; }
 
         [JsonProperty("payment_method_details")]
         public ChargePaymentMethodDetails PaymentMethodDetails { get; set; }
@@ -293,7 +276,6 @@ namespace Stripe
         public StripeList<Refund> Refunds { get; set; }
 
         #region Expandable Review
-
         [JsonIgnore]
         public string ReviewId
         {
@@ -317,11 +299,9 @@ namespace Stripe
         public Shipping Shipping { get; set; }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(StripeObjectConverter))]
         public IPaymentSource Source { get; set; }
 
-        #region Expandable Transfer
-
+        #region Expandable Source Transfer
         [JsonIgnore]
         public string SourceTransferId
         {
@@ -351,7 +331,6 @@ namespace Stripe
         public string Status { get; set; }
 
         #region Expandable Transfer
-
         [JsonIgnore]
         public string TransferId
         {
@@ -376,9 +355,5 @@ namespace Stripe
 
         [JsonProperty("transfer_group")]
         public string TransferGroup { get; set; }
-
-        // The properties below are for internal use only and not returned as part of standard API requests.
-        [JsonProperty("authorization_code")]
-        public string AuthorizationCode { get; set; }
     }
 }

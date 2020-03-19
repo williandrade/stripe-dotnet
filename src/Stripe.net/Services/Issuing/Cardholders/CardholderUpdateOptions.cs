@@ -28,9 +28,6 @@ namespace Stripe.Issuing
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
         [JsonProperty("phone_number")]
         public string PhoneNumber { get; set; }
 
