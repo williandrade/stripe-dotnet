@@ -38,14 +38,6 @@ namespace Stripe.Issuing
         [JsonProperty("authorization_method")]
         public string AuthorizationMethod { get; set; }
 
-        [Obsolete]
-        [JsonProperty("authorized_amount")]
-        public long AuthorizedAmount { get; set; }
-
-        [Obsolete]
-        [JsonProperty("authorized_currency")]
-        public string AuthorizedCurrency { get; set; }
-
         /// <summary>
         /// List of balance transactions associated with this authorization.
         /// </summary>
@@ -98,18 +90,6 @@ namespace Stripe.Issuing
         [JsonProperty("currency")]
         public string Currency { get; set; }
 
-        [Obsolete]
-        [JsonProperty("held_amount")]
-        public long HeldAmount { get; set; }
-
-        [Obsolete]
-        [JsonProperty("held_currency")]
-        public string HeldCurrency { get; set; }
-
-        [Obsolete]
-        [JsonProperty("is_held_amount_controllable")]
-        public bool IsHeldAmountControllable { get; set; }
-
         /// <summary>
         /// Has the value <c>true</c> if the object exists in live mode or the value
         /// <c>false</c> if the object exists in test mode.
@@ -143,14 +123,6 @@ namespace Stripe.Issuing
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
 
-        [Obsolete]
-        [JsonProperty("pending_authorized_amount")]
-        public long PendingAuthorizedAmount { get; set; }
-
-        [Obsolete]
-        [JsonProperty("pending_held_amount")]
-        public long PendingHeldAmount { get; set; }
-
         /// <summary>
         /// The pending authorization request. This field will only be non-null during an
         /// <see cref="Events.IssuingAuthorizationRequest" /> webhook.
@@ -165,7 +137,7 @@ namespace Stripe.Issuing
         /// you can look at the request history to see the previous states of the authorization.
         /// </summary>
         [JsonProperty("request_history")]
-        public List<RequestHistory> RequestHistory { get; set; }
+        public List<AuthorizationRequestHistory> RequestHistory { get; set; }
 
         /// <summary>
         /// The current status of the authorization in its lifecycle. One of <c>pending</c>,
@@ -185,7 +157,7 @@ namespace Stripe.Issuing
         /// merchant.
         /// </summary>
         [JsonProperty("verification_data")]
-        public VerificationData VerificationData { get; set; }
+        public AuthorizationVerificationData VerificationData { get; set; }
 
         /// <summary>
         /// What, if any, digital wallet was used for this authorization. One of <c>apple_pay</c>,
@@ -193,9 +165,5 @@ namespace Stripe.Issuing
         /// </summary>
         [JsonProperty("wallet")]
         public string Wallet { get; set; }
-
-        [Obsolete("Use Wallet instead")]
-        [JsonProperty("wallet_provider")]
-        public string WalletProvider { get; set; }
     }
 }

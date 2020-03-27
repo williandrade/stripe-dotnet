@@ -19,10 +19,6 @@ namespace Stripe.Issuing
         [JsonProperty("object")]
         public string Object { get; set; }
 
-        [Obsolete("Use SpendingControls instead.")]
-        [JsonProperty("authorization_controls")]
-        public CardholderAuthorizationControls AuthorizationControls { get; set; }
-
         /// <summary>
         /// The cardholder’s billing address.
         /// </summary>
@@ -53,10 +49,6 @@ namespace Stripe.Issuing
         /// </summary>
         [JsonProperty("individual")]
         public CardholderIndividual Individual { get; set; }
-
-        [Obsolete]
-        [JsonProperty("is_default")]
-        public bool IsDefault { get; set; }
 
         /// <summary>
         /// Has the value <c>true</c> if the object exists in live mode or the value

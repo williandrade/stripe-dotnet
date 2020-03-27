@@ -19,10 +19,6 @@ namespace Stripe.Issuing
         [JsonProperty("object")]
         public string Object { get; set; }
 
-        [Obsolete("Use SpendingControls instead.")]
-        [JsonProperty("authorization_controls")]
-        public AuthorizationControls AuthorizationControls { get; set; }
-
         /// <summary>
         /// The brand of the card.
         /// </summary>
@@ -78,10 +74,6 @@ namespace Stripe.Issuing
         /// </summary>
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
-
-        [Obsolete]
-        [JsonProperty("name")]
-        public string Name { get; set; }
 
         /// <summary>
         /// Metadata about the PIN on the card.

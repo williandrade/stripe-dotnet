@@ -7,9 +7,5 @@ namespace Stripe.Issuing
     {
         [JsonProperty("address")]
         public AddressOptions Address { get; set; }
-
-        [Obsolete]
-        [JsonProperty("name")]
-        public string Name { get; set; }
     }
 }

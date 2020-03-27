@@ -6,10 +6,6 @@ namespace Stripe.Issuing
 
     public class CardholderCreateOptions : BaseOptions, IHasMetadata
     {
-        [Obsolete("Use SpendingControls instead.")]
-        [JsonProperty("authorization_controls")]
-        public CardholderAuthorizationControlsOptions AuthorizationControls { get; set; }
-
         /// <summary>
         /// The cardholder’s billing address.
         /// </summary>
@@ -33,10 +29,6 @@ namespace Stripe.Issuing
         /// </summary>
         [JsonProperty("individual")]
         public CardholderIndividualOptions Individual { get; set; }
-
-        [Obsolete]
-        [JsonProperty("is_default")]
-        public bool? IsDefault { get; set; }
 
         /// <summary>
         /// A set of key/value pairs that you can attach to a charge object. It can be useful for

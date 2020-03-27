@@ -7,17 +7,6 @@ namespace Stripe.Issuing
     public class CardUpdateOptions : BaseOptions, IHasMetadata
     {
         /// <summary>
-        /// Spending rules that give you some control over how your cards can
-        /// be used.
-        /// </summary>
-        [JsonProperty("authorization_controls")]
-        public AuthorizationControlsOptions AuthorizationControls { get; set; }
-
-        [Obsolete("This parameter does not exist and was added to the library incorrectly.")]
-        [JsonProperty("billing")]
-        public BillingOptions Billing { get; set; }
-
-        /// <summary>
         /// A set of key-value pairs that you can attach to an object. It
         /// can be useful for storing additional information about the object
         /// in a structured format.

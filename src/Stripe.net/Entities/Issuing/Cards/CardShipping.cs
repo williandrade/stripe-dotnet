@@ -49,10 +49,6 @@ namespace Stripe.Issuing
         [JsonProperty("service")]
         public string Service { get; set; }
 
-        [Obsolete("Use Service instead")]
-        [JsonProperty("speed")]
-        public string Speed { get; set; }
-
         /// <summary>
         /// A tracking number for a card shipment.
         /// </summary>

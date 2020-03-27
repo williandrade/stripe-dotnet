@@ -5,7 +5,7 @@ namespace Stripe.Issuing
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class AuthorizationRequestHistoryViolatedAuthorizationControl : StripeEntity<AuthorizationRequestHistoryViolatedAuthorizationControl>
+    public class AuthorizationRequestHistoryViolatedSpendingControl : StripeEntity<AuthorizationRequestHistoryViolatedSpendingControl>
     {
         /// <summary>
         /// Entity which the authorization control acts on. One of <c>account</c>, <c>card</c>, or
